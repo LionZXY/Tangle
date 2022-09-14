@@ -34,6 +34,8 @@ class VMInjectCodeGenerator : TangleCodeGenerator() {
     module: ModuleDescriptor,
     projectFiles: Collection<KtFile>
   ): Collection<GeneratedFile> {
+    println("TANGLE: VMInjectCodeGenerator#generateTangleCode ($codeGenDir, $module, $projectFiles)")
+
     val viewModelParamsList = projectFiles
       .classAndInnerClassReferences(module)
       .mapNotNull {
@@ -61,6 +63,8 @@ class VMInjectCodeGenerator : TangleCodeGenerator() {
       moduleParams
         .map { generate(codeGenDir, it) }
     }
+
+    println("TANGLE: VMInjectCodeGenerator#generatedFiles ($tangleScopeModules, $tangleAppScopeModules)")
 
     return tangleScopeModules + tangleAppScopeModules
   }

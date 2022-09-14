@@ -34,6 +34,7 @@ class ViewModelTangleAppScopeModuleGenerator : FileGenerator<TangleScopeModule> 
     codeGenDir: File,
     params: TangleScopeModule
   ): GeneratedFile {
+    println("TANGLE: ViewModelTangleAppScopeModuleGenerator#generate ($codeGenDir, $params)")
 
     val packageName = params.packageName
 

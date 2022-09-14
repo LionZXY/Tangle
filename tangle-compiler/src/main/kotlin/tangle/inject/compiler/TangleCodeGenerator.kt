@@ -43,7 +43,9 @@ abstract class TangleCodeGenerator : CodeGenerator {
     module: ModuleDescriptor,
     projectFiles: Collection<KtFile>
   ): Collection<GeneratedFile> {
+    println("TANGLE: #generateCode ($codeGenDir, $module, $projectFiles)")
     return delegateToAnvilUnsafe {
+      println("TANGLE: #generateCodeInAnvil ($codeGenDir, $module, $projectFiles)")
       generateTangleCode(codeGenDir, module, projectFiles)
     }
   }
